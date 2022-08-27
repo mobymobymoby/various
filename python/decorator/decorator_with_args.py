@@ -3,7 +3,7 @@ def deco_with_args(addr, value):
         def wrapper(arg):
             print(f"BEGIN: {function.__name__}({arg})")
             if (addr == 0x1000):
-                print("special operation")
+                print("special operation", value)
             function(arg)
             print(f"  END: {function.__name__}({arg})\n")
 
@@ -15,7 +15,7 @@ def deco_with_args(addr, value):
 def main(state):
     print("[main]", state)
 
-@deco_with_args(0x1001, 20)
+@deco_with_args(0x1001, 200)
 def foo(state):
     print("[foo]", state)
 
